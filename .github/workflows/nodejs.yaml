@@ -3,6 +3,12 @@ name: Node CI
 on: [push]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    - name: Lint the code!
+    run: npm run lint
+    
   build:
     runs-on: ubuntu-latest
 
@@ -16,10 +22,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, lint, build, and test
+    - name: npm install, build, and test
       run: |
         npm install
-        npm run lint
         npm run build --if-present
         npm test
       env:
