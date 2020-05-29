@@ -6,9 +6,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
+    steps:
+    - uses: actions/checkout@v1
     - name: Lint the code!
-    run: npm run lint
-    
+      run: npm run lint
+
   build:
     runs-on: ubuntu-latest
 
